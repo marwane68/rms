@@ -1,0 +1,17 @@
+com\gestion\incident\repositories\IncidentRepository.class
+com\gestion\incident\service\IncidentService.class
+com\gestion\incident\GestionincidentsApplication.class
+com\gestion\incident\controller\IncidentController.class
+com\gestion\incident\controller\AuthentificationController.class
+com\gestion\incident\bean\Authentification.class
+com\gestion\incident\bean\Incident.class
+com\gestion\incident\controller\ClientController.class
+com\gestion\incident\bean\Administrateur.class
+com\gestion\incident\repositories\ClientRepository.class
+com\gestion\incident\service\AdministrateurService.class
+com\gestion\incident\bean\Client.class
+com\gestion\incident\repositories\AdministrateurRepository.class
+com\gestion\incident\service\ClientService.class
+com\gestion\incident\repositories\AuthentificationRepository.class
+com\gestion\incident\service\AuthentificationService.class
+com\gestion\incident\controller\AdministrateurController.class

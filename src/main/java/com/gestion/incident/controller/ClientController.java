@@ -24,9 +24,9 @@ public class ClientController {
 		return clientservice.GetAllClients();
 	}
 	
-	@RequestMapping("/client/{id}")
-	public Client GetClientById(@PathVariable String id) {
-		return clientservice.GetClientById(id);
+	@RequestMapping("/client/{idclient}")
+	public Client GetClientById(@PathVariable String idclient) {
+		return clientservice.GetClientById(idclient);
 	}
 	
 	@RequestMapping(method=RequestMethod.POST, value="/clients")
@@ -35,15 +35,15 @@ public class ClientController {
 		return "le client a été ajouté avec succès";	
 	}
 	
-	@RequestMapping(method=RequestMethod.PUT, value="/clients/{id}")
-	public String UpdateClient(@RequestBody Client client, @PathVariable String id){
-		clientservice.UpdateClient(client, id);
-		return "le client"+ id +"a bien été mise à jour";
+	@RequestMapping(method=RequestMethod.PUT, value="/clients")
+	public String UpdateClient(@RequestBody Client client){
+		clientservice.UpdateClient(client);
+		return "le client" +" "+client.getId()+" "+ "a bien été mise à jour";
 	}
 	
-	@RequestMapping(method=RequestMethod.DELETE, value="/clients/{id}")
-	public String DeleteClient(@PathVariable String id){
-		clientservice.DeleteClient(id);
+	@RequestMapping(method=RequestMethod.DELETE, value="/clients/{idclient}")
+	public String DeleteClient(@PathVariable String idclient){
+		clientservice.DeleteClient(idclient);
 		return "le client a été supprimé avec succès";	
 	}
 	
