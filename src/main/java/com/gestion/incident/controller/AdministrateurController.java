@@ -13,6 +13,7 @@ import com.gestion.incident.bean.Administrateur;
 import com.gestion.incident.service.AdministrateurService;
 
 @RestController
+@RequestMapping(value = "/rms")
 public class AdministrateurController {
 	
 	@Autowired	
@@ -22,6 +23,11 @@ public class AdministrateurController {
 	@RequestMapping("/administrateurs")
 	public List<Administrateur> GetAllAdmins() throws ParseException{
 		return adminservice.GetAllAdmins();
+	}
+	
+	@RequestMapping("/administrateurs/nb")
+	public int GetNumberAdmins(){
+		return adminservice.NumberAdmins();
 	}
 	
 	@RequestMapping("/administrateur/{idadmin}")
@@ -46,6 +52,7 @@ public class AdministrateurController {
 		adminservice.DeleteAdministrateur(idadmin);
 		return "l'admin a été supprimé avec succès";	
 	}
+	
 	
 
 }

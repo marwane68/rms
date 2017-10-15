@@ -16,6 +16,7 @@ import com.gestion.incident.service.IncidentService;
  *
  */
 @RestController
+@RequestMapping(value = "/rms")
 public class IncidentController {
 	
 	@Autowired	

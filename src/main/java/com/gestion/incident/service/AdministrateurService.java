@@ -1,6 +1,7 @@
 package com.gestion.incident.service;
 
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,7 +36,7 @@ public class AdministrateurService {
 	
 	public String AddAdministrateur(Administrateur admin){
 		adminRepository.save(admin);
-		return "le client a été ajouter avec succès";
+		return "l'administrateur a été ajouter avec succès";
 	}
 	
 	public void UpdateAdministrateur(Administrateur admin){
@@ -47,6 +48,11 @@ public class AdministrateurService {
 	public void DeleteAdministrateur(String idadmin) {
 		adminRepository.delete(idadmin);
 		//clients.removeIf(client -> client.getId().equals(idclient));
+	}
+	
+	public int NumberAdmins(){
+		ArrayList<Administrateur> ListAdmin = (ArrayList<Administrateur>)adminRepository.findAll();
+		return ListAdmin.size();
 	}
 	
 }

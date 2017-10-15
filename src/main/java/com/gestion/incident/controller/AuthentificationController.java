@@ -12,9 +12,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.gestion.incident.bean.Authentification;
+import com.gestion.incident.exception.IncidentException;
 import com.gestion.incident.service.AuthentificationService;
 
 @RestController
+@RequestMapping(value = "/rms")
 public class AuthentificationController {
 	
 	@Autowired	
@@ -50,8 +52,8 @@ public class AuthentificationController {
 	}
 	
 	@RequestMapping(value = "/auth", method = RequestMethod.POST, headers = "Accept=application/json")
-	public void authentifier(final HttpServletRequest request, @RequestBody final Authentification user) {
-		final Authentification authentification = authentificationservice.authentifier(user.getLogin(), user.getPassword()) ; 
+	public void authentifier(final HttpServletRequest request, @RequestBody final Authentification user) throws IncidentException {
+		final Authentification authentification = authentificationservice.authentifier(user.getLogin(), user.getPassword()); 
 		if (authentification != null) {
 			request.getSession().setAttribute("user", authentification);
 			System.out.println("connécté");
