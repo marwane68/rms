@@ -37,7 +37,7 @@ public class ClientController {
 	}
 	
 	@RequestMapping(method=RequestMethod.POST, value="/clients")
-	public String AddClient(@RequestBody Client client){
+	public String AddClient(@RequestBody Client client) throws IncidentException{
 		clientservice.AddClient(client);
 		return "le client a été ajouté avec succès";	
 	}
@@ -51,7 +51,7 @@ public class ClientController {
 	@RequestMapping(method=RequestMethod.DELETE, value="/clients/{idclient}")
 	public String DeleteClient(@PathVariable String idclient) throws IncidentException{
 		clientservice.DeleteClient(idclient);
-		return "le client a été supprimé avec succès";	
+		return "le client a été supprimé avec succès";
 	}
 	
 

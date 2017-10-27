@@ -1,5 +1,6 @@
 package com.gestion.incident.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,6 +41,11 @@ public class IncidentService {
 		public void DeleteIncident(String idincident) {
 			incidentRepository.delete(idincident);
 			//clients.removeIf(incident -> incident.getIdincident().equals(idincident));
+		}
+		
+		public int GetNumberIncidents(){
+			ArrayList<Incident> ListIncident = (ArrayList<Incident>)incidentRepository.findAll();
+			return ListIncident.size();
 		}
 	
 	

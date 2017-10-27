@@ -13,7 +13,9 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+//import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+//import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 //model class
 @Entity
@@ -42,6 +44,7 @@ public class Client {
 	
 	@OneToMany(targetEntity = Incident.class, cascade = CascadeType.ALL, mappedBy = "client",fetch=FetchType.LAZY)
 	@JsonManagedReference
+	//@JsonIdentityInfo(generator = ObjectIdGenerators.IntSequenceGenerator.class, property = "idclient")
 	public Set<Incident> incidents = new HashSet<Incident>(0);
 	
 	public Client() {

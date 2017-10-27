@@ -36,7 +36,10 @@ public class ClientService {
 		//return clients.stream().filter((Client c) -> c.getId().equals(Id)).findFirst().get();
 	}
 	
-	public String AddClient(Client client){
+	public String AddClient(Client client) throws IncidentException{
+		if(clientRepository.exists((client.getId()))){
+			throw new IncidentException("le client existe déja");
+		}else
 		clientRepository.save(client);
 		return "le client a été ajouter avec succès";
 	}
@@ -50,7 +53,7 @@ public class ClientService {
 	
 
 	public void DeleteClient(String idclient) throws IncidentException {
-		if(clientRepository.exists("idclient")){
+		if(clientRepository.exists(idclient)){
 		clientRepository.delete(idclient);
 		}else
 			throw new IncidentException("l'id du client à supprimer n'existe pas");

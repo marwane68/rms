@@ -8,12 +8,17 @@ import { RouterModule, Router } from '@angular/router';
 })
 export class AppComponent implements OnInit {
 
+
 constructor(private router: Router){
 
 }
 
  ngOnInit() {
-    this.router.navigate(["/authentification"]);
+ 	if(localStorage.login!=null){
+ 	    this.router.navigate(["/accueil/dashboard"]);
+ 	}else
+ 	this.router.navigate(["/authentification"]);
+ 	
     }
   title = 'app';
 }

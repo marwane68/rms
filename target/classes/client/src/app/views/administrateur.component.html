@@ -1,0 +1,41 @@
+ <div class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="header">
+                                <h4 class="title">RMS</h4>
+                                <p class="category">Liste des administrateurs</p>
+                            </div>
+                            <div class="content table-responsive table-full-width">
+                                <table class="table table-hover table-striped">
+                                    <thead>
+                                        <th>ID</th>
+                                    	<th>Nom</th>
+                                    	<th>Prénom</th>
+                                    	<th>Email</th>
+                                        <th>Actions</th>
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor="let admin of adminsData">
+                                        	<td matTooltip="Cliquez pour plus de détails">{{admin.id}}</td>
+                                        	<td matTooltip="Cliquez pour plus de détails">{{admin.nom}}</td>
+                                        	<td matTooltip="Cliquez pour plus de détails">{{admin.prenom}}</td>
+                                        	<td matTooltip="Cliquez pour plus de détails">{{admin.email}}</td>
+                                            <td>
+                                             <button type="button" matTooltip="Mise à jour" class="btn btn-info btn-simple btn-xs">
+                                                        <i class="fa fa-edit"></i>
+                                                    </button>
+                                                    <button type="button" matTooltip="Suppression" class="btn btn-danger btn-simple btn-xs">
+                                                        <i class="fa fa-times"></i>
+                                                    </button></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>

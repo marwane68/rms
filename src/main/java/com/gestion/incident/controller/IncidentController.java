@@ -28,6 +28,12 @@ public class IncidentController {
 		return incidentservice.GetAllIncidents();
 	}
 	
+	@RequestMapping("/incidents/nb")
+	public int GetNumberIncidents(){
+		return incidentservice.GetNumberIncidents();
+	}
+	
+	
 	@RequestMapping("/incident/{id}")
 	public Incident GetIncidentById(@PathVariable String idincident) {
 		return incidentservice.GetIncidentById(idincident);
@@ -45,8 +51,8 @@ public class IncidentController {
 		return "l'incident" +" "+incident.getIdincident()+" "+ "a bien été mise à jour";
 	}
 	
-	@RequestMapping(method=RequestMethod.DELETE, value="/incidents/{id}")
-	public String DeleteClient(@PathVariable String idincident){
+	@RequestMapping(method=RequestMethod.DELETE, value="/incidents/{idincident}")
+	public String DeleteIncident(@PathVariable String idincident){
 		incidentservice.DeleteIncident(idincident);
 		return "l'incident a été supprimé avec succès";	
 	}

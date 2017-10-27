@@ -2,6 +2,7 @@ package com.gestion.incident.bean;
 
 import java.util.Date;
 
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -10,6 +11,8 @@ import javax.persistence.ManyToOne;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonFormat;
+//import com.fasterxml.jackson.annotation.JsonIgnore;
+//import com.fasterxml.jackson.annotation.JsonManagedReference;
 /**
  * @author Marwane
  *
@@ -35,6 +38,7 @@ public class Incident {
 	@ManyToOne
 	@JoinColumn(name = "NO_CLIENT", insertable=false, updatable=false)
 	@JsonBackReference
+	//@JsonManagedReference
 	public Client client;
 	
 	public Incident(){
